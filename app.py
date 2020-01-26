@@ -21,7 +21,7 @@ def get_direction(direction):
 def tour(id):
     tours = tours_data.tours
     departures = tours_data.departures
-    return render_template('tour.html', id=id, tours=tours)
+    return render_template('tour.html', id=id, tours=tours, departures=departures)
 
 
 app.run()
