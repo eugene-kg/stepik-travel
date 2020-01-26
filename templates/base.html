@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-3">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" data-test="logo" href="/">{{ title }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          {% for departure_key, departure_name in departures.items() %}
+            {% if departure_key == direction %}
+                {% set nav_class = "nav-item active" %}
+            {% else %}
+                {% set nav_class = "nav-item" %}
+            {% endif %}
+
+            <li class="{{ nav_class }}">
+                <a class="nav-link" href="/from/{{ departure_key }}/">{{ departure_name }} </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+
+    <!-- main screen text -->
+    {% block main_screen_text %} {% endblock %}
+    <!-- CARDS -->
+    {% block cards_main_scree %} {% endblock %}
+
+    <!-- Direction overview -->
+    {% block direction_overview %} {% endblock %}
+    <!-- Direction cards -->
+    {% block direction_cards %} {% endblock %}
+
+
+    <!-- Tour description -->
+    {% block tour_description %} {% endblock %}
+
+
+</div>
+
+</body>
+</html>
