@@ -64,5 +64,9 @@ def not_found(e):
 def server_error(e):
     return "Что-то не так, но мы все починим"
 
+# Flask server
+# app.run()
 
-app.run()
+
+if __name__ == '__main__':
+    app.run()
